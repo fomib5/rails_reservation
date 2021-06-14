@@ -1,0 +1,45 @@
+<div class = "container-fiuld reservations">
+  <h4 class = "pb-4">予約済みルーム一覧</h4>
+  <table>
+    <thead>
+      <tr align = "center">
+        <th>ルーム画像</th>
+        <th>ルーム名</th>
+        <th>ルーム紹介</th>
+        <th>合計料金</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+      <tbody>
+        <% @reservations.each do |reservation| %>
+          <tr>
+            <td>
+              <a href = "/rooms/<%= reservation.room.id %>">
+                <% if reservation.room.room_image? %>
+                  <img class = "reservations-image" src = "<%= reservation.room.room_image %>">
+                <% else %>
+                  <img class = "reservations-image" src = "/assets/room_default.png">
+                <% end %>
+              </a>
+            </td>
+            <td class = "posts-name">
+              <a href = "/rooms/<%= reservation.room.id %>">
+                <%= reservation.room.name %>
+              </a>
+            </td>
+            <td class = "posts-content">
+              <%= reservation.room.introduction %>
+            </td>
+            <td class = "price-icon">
+              <%= reservation.total_price %>
+            </td>
+            <td><%= reservation.start_date %></td>
+            <td><%= reservation.end_date %></td>
+            <td><%= reservation.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>
