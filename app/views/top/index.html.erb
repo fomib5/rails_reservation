@@ -1,0 +1,50 @@
+<div class = "top">
+  <div class = "top-main">
+    <div class = "container">
+      <div class = "row col-lg-6">
+        <div class = "form-frame">
+          <div class = "form-area">
+            <p class = "form-area-title mb-4">Potepan Shareでまだ体験したことのない旅をしよう</p>
+            <%= form_with url: rooms_search_path, method: :get do |f| %>
+              <label>エリア</label>
+              <%= f.text_field :address, class: "form-control mb-4", value: @address, placeholder: "東京" %>
+              <%= f.hidden_field :introduction, value: "nil" %>
+              <%= f.submit "探す", class: "form-control btn-primary mb-4" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class = "container">
+    <div class = "panel-area m-5">
+      <h1 class = "section-title">おすすめのエリア</h1>
+      <div class = "row">
+        <div class = "panel-item col-lg-3 col-6">
+          <span>東京</span>
+          <a href = "rooms/search?address=東京&introduction=nil&commit=探す">
+            <img class = "panel-image" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg">
+          </a>
+        </div>
+        <div class = "panel-item col-lg-3 col-6">
+          <span>大阪</span>
+          <a href = "rooms/search?address=大阪&introduction=nil&commit=探す">
+            <img class = "panel-image" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg">
+          </a>
+        </div>
+        <div class = "panel-item col-lg-3 col-6">
+          <span>京都</span>
+          <a href = "rooms/search?address=京都&introduction=nil&commit=探す">
+            <img class = "panel-image" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg">
+          </a>
+        </div>
+        <div class = "panel-item col-lg-3 col-6">
+          <span>札幌</span>
+          <a href = "rooms/search?address=札幌&introduction=nil&commit=探す">
+            <img class = "panel-image" src = "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
